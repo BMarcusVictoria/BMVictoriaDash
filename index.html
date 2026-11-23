@@ -12,6 +12,7 @@
       --text: #1c2421;
       --muted: #5f6c66;
       --border: #e2dfd7;
+      --divider-strong: #c5bfb2;
       --accent: #1f4e3d;
       --accent-soft: #e7f0ec;
       --green: #166534;
@@ -32,6 +33,7 @@
       --text: #eef2f0;
       --muted: #98a6a0;
       --border: #2a3833;
+      --divider-strong: #41544d;
       --accent: #4aa382;
       --accent-soft: #1b332b;
       --green: #4ade80;
@@ -198,12 +200,67 @@
     .rec-amt { font-size: 17px; font-weight: 800; margin: 3px 0; }
     .rec-date { font-size: 11px; color: var(--muted); }
 
-    /* Table */
-    .table-wrap { overflow-x: auto; }
-    table { width: 100%; border-collapse: collapse; font-size: 13px; }
-    th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border); }
-    th { font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); background: var(--surface-alt); }
-    td.current-col, th.current-col { background: var(--accent-soft); font-weight: 700; }
+    /* Past Weeks History Table — Clear Metric & Target Separation */
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+    table.history-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+    }
+    table.history-table th,
+    table.history-table td {
+      padding: 12px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+    table.history-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+    table.history-table tbody tr:hover td {
+      background-color: rgba(128, 128, 128, 0.04);
+    }
+    table.history-table th {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      background: var(--surface-alt);
+    }
+    /* Bold Metric Column */
+    table.history-table th.col-metric,
+    table.history-table td.col-metric {
+      font-weight: 700;
+      color: var(--text);
+      min-width: 195px;
+      border-right: 1px solid var(--border);
+    }
+    /* Clearly Defined & Lined-Off Target Column */
+    table.history-table th.col-target,
+    table.history-table td.col-target {
+      background: var(--surface-alt);
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 12.5px;
+      min-width: 125px;
+      border-right: 2px solid var(--divider-strong);
+      white-space: nowrap;
+    }
+    table.history-table th.col-target {
+      color: var(--text);
+    }
+    /* Current Week Column */
+    table.history-table th.current-col,
+    table.history-table td.current-col {
+      background: var(--accent-soft);
+      font-weight: 700;
+      color: var(--accent);
+    }
 
     /* Two Column Bottom */
     .two-col {
@@ -327,11 +384,11 @@
       <h2>Past Weeks Performance History</h2>
       <div class="card-sub">Comparative trend analysis across recent trading periods</div>
       <div class="table-wrap">
-        <table>
+        <table class="history-table">
           <thead>
             <tr>
-              <th>Metric</th>
-              <th>Target</th>
+              <th class="col-metric">Metric</th>
+              <th class="col-target">Target</th>
               <th class="current-col" id="th-curr">W34 (Current)</th>
               <th>W33 (w/e 15 Nov)</th>
               <th>W32 (w/e 8 Nov)</th>
@@ -340,56 +397,56 @@
           </thead>
           <tbody>
             <tr>
-              <td><strong>Sales vs Budget</strong></td>
-              <td>Site Budget</td>
+              <td class="col-metric">Sales vs Budget</td>
+              <td class="col-target">Site Budget</td>
               <td class="current-col" id="td-sales">+14.73% (£62,290)</td>
               <td>+9.87% (£60,417)</td>
               <td>+0.4% (£52,771)</td>
               <td>−3.8% (£51,351)</td>
             </tr>
             <tr>
-              <td><strong>Labour Cost %</strong></td>
-              <td>≤ 38.5%</td>
+              <td class="col-metric">Labour Cost %</td>
+              <td class="col-target">≤ 38.5%</td>
               <td class="current-col" id="td-labour">40.72%</td>
               <td>37.98%</td>
               <td>37.2%</td>
               <td>41.4%</td>
             </tr>
             <tr>
-              <td><strong>Spend Per Guest (SPG)</strong></td>
-              <td>≥ £25.00</td>
+              <td class="col-metric">Spend Per Guest (SPG)</td>
+              <td class="col-target">≥ £25.00</td>
               <td class="current-col" id="td-spg">£25.81</td>
               <td>£25.85</td>
               <td>£25.48</td>
               <td>£23.49</td>
             </tr>
             <tr>
-              <td><strong>Marcus Choice %</strong></td>
-              <td>≥ 15.0%</td>
+              <td class="col-metric">Marcus Choice %</td>
+              <td class="col-target">≥ 15.0%</td>
               <td class="current-col" id="td-mc">22.50%</td>
               <td>21.50%</td>
               <td>21.7%</td>
               <td>13.5%</td>
             </tr>
             <tr>
-              <td><strong>Drinks Attach</strong></td>
-              <td>≥ 1.28</td>
+              <td class="col-metric">Drinks Attach</td>
+              <td class="col-target">≥ 1.28</td>
               <td class="current-col" id="td-drinks">1.25</td>
               <td>1.23</td>
               <td>1.21</td>
               <td>1.16</td>
             </tr>
             <tr>
-              <td><strong>Net Promoter Score (NPS)</strong></td>
-              <td>≥ 80</td>
+              <td class="col-metric">Net Promoter Score (NPS)</td>
+              <td class="col-target">≥ 80</td>
               <td class="current-col" id="td-nps">76</td>
               <td>82</td>
               <td>82</td>
               <td>85</td>
             </tr>
             <tr>
-              <td><strong>Team Pulse</strong></td>
-              <td>≥ 7.0</td>
+              <td class="col-metric">Team Pulse</td>
+              <td class="col-target">≥ 7.0</td>
               <td class="current-col" id="td-pulse">7.0</td>
               <td>7.4</td>
               <td>7.3</td>
