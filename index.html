@@ -37,11 +37,11 @@
       --accent: #4aa382;
       --accent-soft: #1b332b;
       --green: #4ade80;
-      --green-bg: rgba(74, 222, 128, 0.14);
+      --green-bg: rgba(74, 222, 128, 0.16);
       --amber: #fbbf24;
-      --amber-bg: rgba(251, 191, 36, 0.14);
+      --amber-bg: rgba(251, 191, 36, 0.16);
       --red: #f87171;
-      --red-bg: rgba(248, 113, 113, 0.14);
+      --red-bg: rgba(248, 113, 113, 0.16);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -146,6 +146,11 @@
       cursor: pointer;
     }
 
+    /* Status Badges / RAG Colours */
+    .good { background: var(--green-bg); color: var(--green); }
+    .warn { background: var(--amber-bg); color: var(--amber); }
+    .bad  { background: var(--red-bg); color: var(--red); }
+
     /* KPI Grid */
     .kpi-grid {
       display: grid;
@@ -169,9 +174,6 @@
     }
     .kpi-val { font-size: 24px; font-weight: 800; margin-bottom: 6px; }
     .kpi-sub { font-size: 12px; font-weight: 600; display: inline-block; padding: 2px 8px; border-radius: 6px; }
-    .good { background: var(--green-bg); color: var(--green); }
-    .warn { background: var(--amber-bg); color: var(--amber); }
-    .bad  { background: var(--red-bg); color: var(--red); }
 
     /* Cards & Sections */
     .card {
@@ -200,7 +202,7 @@
     .rec-amt { font-size: 17px; font-weight: 800; margin: 3px 0; }
     .rec-date { font-size: 11px; color: var(--muted); }
 
-    /* Past Weeks History Table — Clear Metric & Target Separation */
+    /* Past Weeks History Table — Clear Metric & Target Separation + RAG Pills */
     .table-wrap {
       overflow-x: auto;
       border: 1px solid var(--border);
@@ -254,12 +256,23 @@
     table.history-table th.col-target {
       color: var(--text);
     }
-    /* Current Week Column */
-    table.history-table th.current-col,
-    table.history-table td.current-col {
+    /* Latest Reported Week Column */
+    table.history-table th.latest-col,
+    table.history-table td.latest-col {
       background: var(--accent-soft);
       font-weight: 700;
+    }
+    table.history-table th.latest-col {
       color: var(--accent);
+    }
+    /* RAG Pill inside table cells */
+    .rag-pill {
+      display: inline-block;
+      padding: 3px 9px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 1.3;
     }
 
     /* Two Column Bottom */
@@ -294,12 +307,12 @@
       </div>
       <nav class="nav">
         <a href="#overview" class="active">📊 Weekly Overview</a>
-        <a href="https://brothermarcus-victoria.netlify.app/" target="_blank">📈 BM Trading Pack ↗</a>
-        <a href="https://brothermarcus-victoria.netlify.app/" target="_blank">📋 MOR Scorecard ↗</a>
-        <a href="https://brothermarcus-victoria.netlify.app/" target="_blank">✨ Ops Excellence Report ↗</a>
-        <a href="https://brothermarcus-victoria.netlify.app/" target="_blank">💬 Guest Sentiment Search ↗</a>
-        <a href="https://brothermarcus-victoria.netlify.app/" target="_blank">⚓ The Brothership ↗</a>
-        <a href="https://brothermarcus-victoria.netlify.app/" target="_blank">🎯 Microsoft Planner ↗</a>
+        <a href="url?id=1" target="_blank">📈 BM Trading Pack ↗</a>
+        <a href="url?id=1" target="_blank">📋 MOR Scorecard ↗</a>
+        <a href="url?id=1" target="_blank">✨ Ops Excellence Report ↗</a>
+        <a href="url?id=1" target="_blank">💬 Guest Sentiment Search ↗</a>
+        <a href="url?id=1" target="_blank">⚓ The Brothership ↗</a>
+        <a href="url?id=1" target="_blank">🎯 Microsoft Planner ↗</a>
       </nav>
     </div>
     <div class="gm-box">
@@ -320,7 +333,7 @@
       </div>
     </div>
 
-    <!-- Top 7 KPIs -->
+    <!-- Top 7 KPIs (Green = Beat Target, Amber = Bang On Target, Red = Missed Target) -->
     <section class="kpi-grid">
       <div class="kpi-card">
         <div class="kpi-label">Weekly Sales</div>
@@ -330,7 +343,7 @@
       <div class="kpi-card">
         <div class="kpi-label">Labour Cost %</div>
         <div class="kpi-val" id="kpi-labour">40.72%</div>
-        <div class="kpi-sub warn" id="kpi-labour-sub">Target: ≤ 38.5% (£25,363 total)</div>
+        <div class="kpi-sub bad" id="kpi-labour-sub">Target: ≤ 38.5% (£25,363 total)</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-label">Spend Per Guest (SPG)</div>
@@ -345,17 +358,17 @@
       <div class="kpi-card">
         <div class="kpi-label">Drinks Attach</div>
         <div class="kpi-val" id="kpi-drinks">1.25</div>
-        <div class="kpi-sub warn" id="kpi-drinks-sub">Target: ≥ 1.28 (Focus Area)</div>
+        <div class="kpi-sub bad" id="kpi-drinks-sub">Target: ≥ 1.28 (Below Target)</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-label">Net Promoter Score (NPS)</div>
         <div class="kpi-val" id="kpi-nps">76</div>
-        <div class="kpi-sub warn" id="kpi-nps-sub">Target: ≥ 80 (26x 5★ Reviews)</div>
+        <div class="kpi-sub bad" id="kpi-nps-sub">Target: ≥ 80 (26x 5★ Reviews)</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-label">Team Pulse</div>
         <div class="kpi-val" id="kpi-pulse">7.0</div>
-        <div class="kpi-sub good" id="kpi-pulse-sub">Target: ≥ 7.0 (Achieved)</div>
+        <div class="kpi-sub warn" id="kpi-pulse-sub">Target: ≥ 7.0 (Bang On Target)</div>
       </div>
     </section>
 
@@ -382,14 +395,14 @@
     <!-- Past Weeks Performance History -->
     <section class="card">
       <h2>Past Weeks Performance History</h2>
-      <div class="card-sub">Comparative trend analysis across recent trading periods</div>
+      <div class="card-sub">Comparative trend analysis across recent trading periods · Green = Hit Target · Amber = Bang On · Red = Missed</div>
       <div class="table-wrap">
         <table class="history-table">
           <thead>
             <tr>
               <th class="col-metric">Metric</th>
               <th class="col-target">Target</th>
-              <th class="current-col" id="th-curr">W34 (Current)</th>
+              <th class="latest-col" id="th-curr">W34 (w/e 22 Nov)</th>
               <th>W33 (w/e 15 Nov)</th>
               <th>W32 (w/e 8 Nov)</th>
               <th>W31 (w/e 1 Nov)</th>
@@ -399,58 +412,58 @@
             <tr>
               <td class="col-metric">Sales vs Budget</td>
               <td class="col-target">Site Budget</td>
-              <td class="current-col" id="td-sales">+14.73% (£62,290)</td>
-              <td>+9.87% (£60,417)</td>
-              <td>+0.4% (£52,771)</td>
-              <td>−3.8% (£51,351)</td>
+              <td class="latest-col"><span class="rag-pill good" id="td-sales">+14.73% (£62,290)</span></td>
+              <td><span class="rag-pill good">+9.87% (£60,417)</span></td>
+              <td><span class="rag-pill good">+0.4% (£52,771)</span></td>
+              <td><span class="rag-pill bad">−3.8% (£51,351)</span></td>
             </tr>
             <tr>
               <td class="col-metric">Labour Cost %</td>
               <td class="col-target">≤ 38.5%</td>
-              <td class="current-col" id="td-labour">40.72%</td>
-              <td>37.98%</td>
-              <td>37.2%</td>
-              <td>41.4%</td>
+              <td class="latest-col"><span class="rag-pill bad" id="td-labour">40.72%</span></td>
+              <td><span class="rag-pill good">37.98%</span></td>
+              <td><span class="rag-pill good">37.2%</span></td>
+              <td><span class="rag-pill bad">41.4%</span></td>
             </tr>
             <tr>
               <td class="col-metric">Spend Per Guest (SPG)</td>
               <td class="col-target">≥ £25.00</td>
-              <td class="current-col" id="td-spg">£25.81</td>
-              <td>£25.85</td>
-              <td>£25.48</td>
-              <td>£23.49</td>
+              <td class="latest-col"><span class="rag-pill good" id="td-spg">£25.81</span></td>
+              <td><span class="rag-pill good">£25.85</span></td>
+              <td><span class="rag-pill good">£25.48</span></td>
+              <td><span class="rag-pill bad">£23.49</span></td>
             </tr>
             <tr>
               <td class="col-metric">Marcus Choice %</td>
               <td class="col-target">≥ 15.0%</td>
-              <td class="current-col" id="td-mc">22.50%</td>
-              <td>21.50%</td>
-              <td>21.7%</td>
-              <td>13.5%</td>
+              <td class="latest-col"><span class="rag-pill good" id="td-mc">22.50%</span></td>
+              <td><span class="rag-pill good">21.50%</span></td>
+              <td><span class="rag-pill good">21.7%</span></td>
+              <td><span class="rag-pill bad">13.5%</span></td>
             </tr>
             <tr>
               <td class="col-metric">Drinks Attach</td>
               <td class="col-target">≥ 1.28</td>
-              <td class="current-col" id="td-drinks">1.25</td>
-              <td>1.23</td>
-              <td>1.21</td>
-              <td>1.16</td>
+              <td class="latest-col"><span class="rag-pill bad" id="td-drinks">1.25</span></td>
+              <td><span class="rag-pill bad">1.23</span></td>
+              <td><span class="rag-pill bad">1.21</span></td>
+              <td><span class="rag-pill bad">1.16</span></td>
             </tr>
             <tr>
               <td class="col-metric">Net Promoter Score (NPS)</td>
               <td class="col-target">≥ 80</td>
-              <td class="current-col" id="td-nps">76</td>
-              <td>82</td>
-              <td>82</td>
-              <td>85</td>
+              <td class="latest-col"><span class="rag-pill bad" id="td-nps">76</span></td>
+              <td><span class="rag-pill good">82</span></td>
+              <td><span class="rag-pill good">82</span></td>
+              <td><span class="rag-pill good">85</span></td>
             </tr>
             <tr>
               <td class="col-metric">Team Pulse</td>
               <td class="col-target">≥ 7.0</td>
-              <td class="current-col" id="td-pulse">7.0</td>
-              <td>7.4</td>
-              <td>7.3</td>
-              <td>7.9</td>
+              <td class="latest-col"><span class="rag-pill warn" id="td-pulse">7.0</span></td>
+              <td><span class="rag-pill good">7.4</span></td>
+              <td><span class="rag-pill good">7.3</span></td>
+              <td><span class="rag-pill good">7.9</span></td>
             </tr>
           </tbody>
         </table>
@@ -499,7 +512,7 @@
         </section>
 
         <section class="card">
-          <h2>Next Week Outlook</h2>
+          <h2>This Week's Outlook</h2>
           <div class="card-sub">Forecast &amp; key training focus (w/c 23 Nov 2026)</div>
           <div class="outlook-grid">
             <div class="outlook-stat">
@@ -523,6 +536,13 @@
   </main>
 
   <script>
+    // Returns 'good' (beat target), 'warn' (bang on target), or 'bad' (missed target)
+    function ragClass(val, target, mode = "min", eps = 0.0001) {
+      if (Math.abs(val - target) <= eps) return "warn";
+      if (mode === "min") return val > target ? "good" : "bad";
+      return val < target ? "good" : "bad";
+    }
+
     // Dynamically loads ./Weeks/w34.json (or ?week=XX) so future updates only need a new JSON file in Weeks/
     (async function loadWeekData() {
       const params = new URLSearchParams(window.location.search);
@@ -538,28 +558,57 @@
         document.getElementById("week-badge").textContent = `WEEK ENDING ${d.weekEndingLabel} (W${d.weekNumber})`;
 
         const sign = d.kpis.sales.vsBudgetPct >= 0 ? "+" : "";
-        document.getElementById("budget-pill").textContent = `${sign}${d.kpis.sales.vsBudgetPct.toFixed(2)}% vs Budget`;
+        const salesRag = ragClass(d.kpis.sales.vsBudgetPct, 0, "min", 0.05);
+        const labourRag = ragClass(d.kpis.labour.pctOfSales, d.kpis.labour.targetPct, "max", 0.01);
+        const spgRag = ragClass(d.kpis.spg.actual, d.kpis.spg.target, "min", 0.005);
+        const mcRag = ragClass(d.kpis.marcusChoicePct.actual, d.kpis.marcusChoicePct.target, "min", 0.05);
+        const drinksRag = ragClass(d.kpis.drinksAttach.actual, d.kpis.drinksAttach.target, "min", 0.005);
+        const npsRag = ragClass(d.kpis.nps.actual, d.kpis.nps.target, "min", 0.1);
+        const pulseRag = ragClass(d.kpis.teamPulse.actual, d.kpis.teamPulse.target, "min", 0.05);
+
+        const pill = document.getElementById("budget-pill");
+        pill.textContent = `${sign}${d.kpis.sales.vsBudgetPct.toFixed(2)}% vs Budget`;
+        pill.className = `status-pill ${salesRag}`;
+
         document.getElementById("kpi-sales").textContent = `£${d.kpis.sales.actual.toLocaleString()}`;
-        document.getElementById("kpi-sales-sub").textContent = `↑ ${sign}${d.kpis.sales.vsBudgetPct.toFixed(2)}% vs Budget (£${d.kpis.sales.budget.toLocaleString()})`;
+        const salesSub = document.getElementById("kpi-sales-sub");
+        salesSub.textContent = `↑ ${sign}${d.kpis.sales.vsBudgetPct.toFixed(2)}% vs Budget (£${d.kpis.sales.budget.toLocaleString()})`;
+        salesSub.className = `kpi-sub ${salesRag}`;
 
         document.getElementById("kpi-labour").textContent = `${d.kpis.labour.pctOfSales.toFixed(2)}%`;
-        document.getElementById("kpi-labour-sub").textContent = `Target: ≤ ${d.kpis.labour.targetPct}% (£${d.kpis.labour.totalCost.toLocaleString()} total)`;
-        document.getElementById("kpi-labour-sub").className = `kpi-sub ${d.kpis.labour.pctOfSales <= d.kpis.labour.targetPct ? "good" : "warn"}`;
+        const labourSub = document.getElementById("kpi-labour-sub");
+        labourSub.textContent = `Target: ≤ ${d.kpis.labour.targetPct}% (£${d.kpis.labour.totalCost.toLocaleString()} total)`;
+        labourSub.className = `kpi-sub ${labourRag}`;
 
         document.getElementById("kpi-spg").textContent = `£${d.kpis.spg.actual.toFixed(2)}`;
-        document.getElementById("kpi-mc").textContent = `${d.kpis.marcusChoicePct.actual.toFixed(2)}%`;
-        document.getElementById("kpi-drinks").textContent = d.kpis.drinksAttach.actual.toFixed(2);
-        document.getElementById("kpi-nps").textContent = d.kpis.nps.actual;
-        document.getElementById("kpi-pulse").textContent = d.kpis.teamPulse.actual.toFixed(1);
+        document.getElementById("kpi-spg-sub").className = `kpi-sub ${spgRag}`;
 
-        document.getElementById("th-curr").textContent = `W${d.weekNumber} (Current)`;
-        document.getElementById("td-sales").textContent = `${sign}${d.kpis.sales.vsBudgetPct.toFixed(2)}% (£${d.kpis.sales.actual.toLocaleString()})`;
-        document.getElementById("td-labour").textContent = `${d.kpis.labour.pctOfSales.toFixed(2)}%`;
-        document.getElementById("td-spg").textContent = `£${d.kpis.spg.actual.toFixed(2)}`;
-        document.getElementById("td-mc").textContent = `${d.kpis.marcusChoicePct.actual.toFixed(2)}%`;
-        document.getElementById("td-drinks").textContent = d.kpis.drinksAttach.actual.toFixed(2);
-        document.getElementById("td-nps").textContent = d.kpis.nps.actual;
-        document.getElementById("td-pulse").textContent = d.kpis.teamPulse.actual.toFixed(1);
+        document.getElementById("kpi-mc").textContent = `${d.kpis.marcusChoicePct.actual.toFixed(2)}%`;
+        document.getElementById("kpi-mc-sub").className = `kpi-sub ${mcRag}`;
+
+        document.getElementById("kpi-drinks").textContent = d.kpis.drinksAttach.actual.toFixed(2);
+        document.getElementById("kpi-drinks-sub").className = `kpi-sub ${drinksRag}`;
+
+        document.getElementById("kpi-nps").textContent = d.kpis.nps.actual;
+        document.getElementById("kpi-nps-sub").className = `kpi-sub ${npsRag}`;
+
+        document.getElementById("kpi-pulse").textContent = d.kpis.teamPulse.actual.toFixed(1);
+        document.getElementById("kpi-pulse-sub").className = `kpi-sub ${pulseRag}`;
+
+        document.getElementById("th-curr").textContent = `W${d.weekNumber} (w/e ${d.shortDate})`;
+
+        const setCell = (id, text, rag) => {
+          const el = document.getElementById(id);
+          el.textContent = text;
+          el.className = `rag-pill ${rag}`;
+        };
+        setCell("td-sales", `${sign}${d.kpis.sales.vsBudgetPct.toFixed(2)}% (£${d.kpis.sales.actual.toLocaleString()})`, salesRag);
+        setCell("td-labour", `${d.kpis.labour.pctOfSales.toFixed(2)}%`, labourRag);
+        setCell("td-spg", `£${d.kpis.spg.actual.toFixed(2)}`, spgRag);
+        setCell("td-mc", `${d.kpis.marcusChoicePct.actual.toFixed(2)}%`, mcRag);
+        setCell("td-drinks", d.kpis.drinksAttach.actual.toFixed(2), drinksRag);
+        setCell("td-nps", d.kpis.nps.actual, npsRag);
+        setCell("td-pulse", d.kpis.teamPulse.actual.toFixed(1), pulseRag);
 
         if (d.nextWeekOutlook) {
           document.getElementById("out-sales").textContent = `£${d.nextWeekOutlook.forecastSales.toLocaleString()}`;
