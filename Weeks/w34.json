@@ -1,0 +1,195 @@
+{
+  "weekNumber": 34,
+  "weekEnding": "2026-11-22",
+  "weekEndingLabel": "22 NOV 2026",
+  "shortDate": "22 Nov",
+  "generalManager": "Alex Paulus",
+  "kpis": {
+    "sales": {
+      "actual": 62290.0,
+      "budget": 53744.0,
+      "vsBudgetPct": 14.73,
+      "forecast": 57000.0,
+      "forecastActual": 61977.0,
+      "vsForecastPct": 8.7
+    },
+    "labour": {
+      "totalCost": 25363.0,
+      "pctOfSales": 40.72,
+      "targetPct": 38.5,
+      "breakdown": {
+        "kitchen": 9517.0,
+        "bar": 3567.0,
+        "foh": 9876.0,
+        "nonService": 2403.0
+      },
+      "hoursVsApproved": {
+        "total": 66.8,
+        "boh": 37.2,
+        "foh": 17.4,
+        "bar": 12.2
+      },
+      "excludedTrainingNoticeHours": [
+        {
+          "person": "Benvenuto Pala",
+          "reason": "Notice pay",
+          "hours": 16
+        },
+        {
+          "person": "Jamal Ashe",
+          "reason": "Probation meeting min pay",
+          "hours": 3
+        },
+        {
+          "person": "Serdal Bostan",
+          "reason": "New Sous Chef",
+          "hours": 48
+        },
+        {
+          "person": "Luis Alberto",
+          "reason": "HC training",
+          "hours": 50.2
+        },
+        {
+          "person": "Ruth & Shani",
+          "reason": "Stint Willow Training",
+          "hours": 6
+        },
+        {
+          "person": "Jago Miller",
+          "reason": "Bar development",
+          "hours": 6
+        }
+      ]
+    },
+    "spg": {
+      "actual": 25.81,
+      "target": 25.0
+    },
+    "marcusChoicePct": {
+      "actual": 22.5,
+      "target": 15.0,
+      "note": "MC & Festive Set Menu"
+    },
+    "drinksAttach": {
+      "actual": 1.25,
+      "target": 1.28
+    },
+    "nps": {
+      "actual": 76,
+      "target": 80
+    },
+    "teamPulse": {
+      "actual": 7.0,
+      "target": 7.0
+    }
+  },
+  "cogs": {
+    "food": {
+      "cost": 9502.36,
+      "theoreticalGpPct": 78.15,
+      "actualGpPct": 78.1,
+      "positiveVariances": [
+        "Soy sauce: +\u00a332 \u2013 Chefs are not using enough sauce for the squid.",
+        "Coriander: +\u00a324 \u2013 Under-portioning against the recipe.",
+        "Olive oil: +\u00a322 \u2013 Under-portioning.",
+        "Dill: +\u00a321 \u2013 Not enough dill added to the chicken salad and dill aioli.",
+        "Xigalo cheese: +\u00a319 \u2013 Chefs are adding less cheese mix than the recipe requires."
+      ],
+      "negativeVariances": [
+        "Eggs: -\u00a317.61",
+        "Lamb: -\u00a318 \u2013 Some portions were underweight and used for staff training; waste was not recorded.",
+        "Chicken Supreme: -\u00a313 \u2013 Burnt and overcooked.",
+        "Greek sausage: -\u00a323 \u2013 Waste not recorded.",
+        "Greek yoghurt: -\u00a310 \u2013 Too much labneh being added to the dish."
+      ],
+      "actionPlan": [
+        "Monitor dish portions closely to ensure they are correct and consistent with recipes.",
+        "Reinforce recipe adherence with the team, particularly regarding dips, sauces, garnishes, and cheese portions.",
+        "Conduct regular portion checks during service to identify and correct inconsistencies immediately.",
+        "Ensure all waste is recorded accurately and promptly.",
+        "Focus on reducing over-portioning, food waste and cooking errors to prevent future variances and maintain GP performance."
+      ]
+    },
+    "drink": {
+      "cost": 4260.0,
+      "theoreticalGpPct": 77.38,
+      "actualGpPct": 77.27,
+      "positiveVariances": [
+        "Bar milk: +\u00a394 \u2013 Milk substituted.",
+        "Mint: +\u00a313.54 \u2013 Using kitchen stock.",
+        "Barolo: +\u00a313 \u2013 Unknown POS variance / usage.",
+        "Tequila: +\u00a312.51 \u2013 Underpour.",
+        "Cucumber: +\u00a312.50 \u2013 Kitchen stock."
+      ],
+      "negativeVariances": [
+        "Wycombe milk: -\u00a3133.40",
+        "Blackberry puree: -\u00a321.45 \u2013 Expired.",
+        "Squish lemon: -\u00a318.96 \u2013 Kitchen usage.",
+        "Oat milk: -\u00a316.41 \u2013 Wastage.",
+        "Efes: -\u00a313.82 \u2013 Fobbing / overpour."
+      ]
+    }
+  },
+  "btfm": {
+    "amount": 483.8,
+    "story": "Canadian couple came in for a pre-theatre dinner on a whim and sat at the bar on a busy midweek PM service. Served by Vi & Marshall, they had such a great experience they returned two more nights; we gifted them a round of drinks on the house and they left a glowing review."
+  },
+  "discounts": [
+    {
+      "name": "First Table 50% Food",
+      "amount": 1198.2
+    },
+    {
+      "name": "Staff Drinks",
+      "amount": 1180.83
+    },
+    {
+      "name": "100% Support Office Non GP",
+      "amount": 976.33
+    },
+    {
+      "name": "Staff Food",
+      "amount": 316.46
+    },
+    {
+      "name": "Staff Discount 60% Off Bill",
+      "amount": 221.64
+    }
+  ],
+  "narrative": {
+    "weeklyOverview": "Sales hit \u00a362,290 vs \u00a353,744 budget (+14.73%) \u2014 and \u00a361,977 vs \u00a357,000 forecast (+\u00a34,977 / +8.7%), driven by \u00a325.81 SPG, solid drinks attach (1.25), and strong Marcus Choice/Festive mix (22.5%). Hyde Park Winter Wonderland opening on Thu 19 Nov boosted footfall from Thu\u2013Sun, while the Piccadilly/District line tube strike (Fri 20 \u2013 Sat 21 Nov) caused some booking cancellations that were more than offset by walk-ins stuck around Victoria (Fri +18.6% and Sat +16.4% vs forecast). Kitchen speeds held under 10 mins across the week, though Sat PM (\u00a313,965) needed one more strong chef.",
+    "operationalFocus": "Aggressive Fork & Manual phone peak booking pacing created bottlenecks during weekend brunch and Fri/Sat dinner, requiring targeted goodwill discounts for short waits. Tighten kitchen portion adherence (dips, sauces, garnishes, cheese) and ensure prompt waste logging (lamb, Greek sausage, bar dairy/purees).",
+    "teamMaintenanceTraining": "Service hours ran +66.8h over scheduled (BOH +37.2h, FOH +17.4h, Bar +12.2h) alongside 150.2h non-service/training hours (HC Luis 50.2h, SC Serdal 48h, Benvenuto notice 16h, Stint Willow 6h, Jago bar dev 6h, Jamal 3h), driving elevated labour % (40.72%). Jamal failed probation and has left the business. Eloise was off following a head injury and Ruth (AGM) was sick on Sun 22 Nov; combined with Amelia away, weekend floor cover was tight with management stepping in. New FOH starter Kai joins w/c 23 Nov."
+  },
+  "guestSentiment": {
+    "highlights": [
+      "26x 5\u2605 reviews praising exceptional customer service, food & atmosphere.",
+      "Shout-outs for Freddie, Marshall & Vi (including a returning Canadian couple served by Vi & Marshall across three nights).",
+      "Negative themes: Busy, loud weekend atmosphere; 2x 3\u2605 (no comment, Sat & Sun); 1x 2\u2605 ('food is not great', Sat)."
+    ],
+    "actions": "Celebrate & recognise Freddie, Marshall, and Vi in briefings; refine weekend booking pacing and floor staffing to manage peak noise and wait times."
+  },
+  "focusBoard": [
+    {
+      "title": "1. Weekend Booking Pacing & Cover",
+      "description": "Smooth Fork & phone peak pacing across weekend brunch and Fri/Sat dinner to prevent bottlenecks, manage noise, and induct new FOH starter Kai (w/c 23 Nov)."
+    },
+    {
+      "title": "2. Recipe Portioning & Waste Logs",
+      "description": "Enforce exact specs on squid sauce, coriander, dill, Xigalo cheese, and labneh, and log all kitchen/bar waste promptly (lamb, Greek sausage, milk, purees)."
+    },
+    {
+      "title": "3. Labour & Training Normalisation",
+      "description": "Bring service hours back in line with schedule (+66.8h overrun in W34) as HC Luis and SC Serdal transition out of initial training hours into target 38% labour."
+    }
+  ],
+  "nextWeekOutlook": {
+    "weekCommencing": "2026-11-23",
+    "forecastSales": 59750.0,
+    "forecastLabourCost": 22634.0,
+    "forecastLabourPct": 38.0,
+    "notes": "Continued festive period growth and colder weather; expecting a quieter Mon & Tue followed by a very busy weekend. Factor in Winter Wonderland / London festive lights footfall and potential tube strike impact.",
+    "inductionAndTraining": "New FOH starter Kai joins w/c 23 Nov; ongoing integration of HC Luis and SC Serdal."
+  }
+}
