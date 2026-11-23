@@ -3,672 +3,515 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Brother Marcus Victoria — Weekly Operations (w/e 15 Nov 2026)</title>
+  <title>Brother Marcus Victoria — Weekly Operations (w/e 22 Nov 2026)</title>
   <style>
     :root {
-      --bg-body: #faf8f5;
-      --bg-sidebar: #0d2b22;
-      --bg-card: #ffffff;
-      --bg-card-subtle: #f4f6f5;
-      --text-main: #111827;
-      --text-muted: #6b7280;
-      --border-color: #e5e7eb;
-      --accent-green: #047857;
-      --accent-teal: #0d9488;
-      --accent-amber: #d97706;
-      --accent-red: #dc2626;
-      --badge-green-bg: #ecfdf5;
-      --badge-green-text: #065f46;
-      --badge-amber-bg: #fffbeb;
-      --badge-amber-text: #92400e;
+      --bg: #f6f5f2;
+      --surface: #ffffff;
+      --surface-alt: #f0eee9;
+      --text: #1c2421;
+      --muted: #5f6c66;
+      --border: #e2dfd7;
+      --accent: #1f4e3d;
+      --accent-soft: #e7f0ec;
+      --green: #166534;
+      --green-bg: #dcfce7;
+      --amber: #92400e;
+      --amber-bg: #fef3c7;
+      --red: #991b1b;
+      --red-bg: #fee2e2;
+      --sidebar-bg: #172621;
+      --sidebar-text: #f3f4f6;
+      --sidebar-muted: #9ca8a3;
     }
 
-    body.dark-mode {
-      --bg-body: #111827;
-      --bg-sidebar: #071914;
-      --bg-card: #1f2937;
-      --bg-card-subtle: #374151;
-      --text-main: #f9fafb;
-      --text-muted: #9ca3af;
-      --border-color: #374151;
-      --badge-green-bg: #064e3b;
-      --badge-green-text: #a7f3d0;
-      --badge-amber-bg: #78350f;
-      --badge-amber-text: #fde68a;
+    body.dark {
+      --bg: #111715;
+      --surface: #18211e;
+      --surface-alt: #1f2b27;
+      --text: #eef2f0;
+      --muted: #98a6a0;
+      --border: #2a3833;
+      --accent: #4aa382;
+      --accent-soft: #1b332b;
+      --green: #4ade80;
+      --green-bg: rgba(74, 222, 128, 0.14);
+      --amber: #fbbf24;
+      --amber-bg: rgba(251, 191, 36, 0.14);
+      --red: #f87171;
+      --red-bg: rgba(248, 113, 113, 0.14);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      background-color: var(--bg-body);
-      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
       display: flex;
       min-height: 100vh;
-      transition: background-color 0.2s, color 0.2s;
+      line-height: 1.5;
     }
 
     /* Sidebar */
     .sidebar {
       width: 260px;
-      background-color: var(--bg-sidebar);
-      color: #ffffff;
+      background: var(--sidebar-bg);
+      color: var(--sidebar-text);
+      padding: 28px 20px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 24px 16px;
       flex-shrink: 0;
     }
-
-    .brand-title {
-      font-size: 18px;
-      font-weight: 800;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-
-    .brand-subtitle {
-      font-size: 11px;
-      color: #9ca3af;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 28px;
-    }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .nav-links a {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: #d1d5db;
-      padding: 10px 12px;
-      border-radius: 6px;
-      font-size: 13.5px;
-      font-weight: 500;
-      transition: background 0.15s;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      background-color: rgba(255, 255, 255, 0.12);
-      color: #ffffff;
-    }
-
-    .user-profile {
-      border-top: 1px solid rgba(255, 255, 255, 0.15);
-      padding-top: 16px;
+    .brand {
       font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--sidebar-muted);
+      margin-bottom: 28px;
+      line-height: 1.4;
     }
-
-    .user-profile strong {
+    .brand strong {
       display: block;
       color: #ffffff;
+      font-size: 17px;
+      letter-spacing: 0.08em;
+      margin-bottom: 2px;
     }
-
-    .user-profile span {
-      font-size: 12px;
-      color: #9ca3af;
+    .nav { display: flex; flex-direction: column; gap: 6px; }
+    .nav a {
+      color: var(--sidebar-text);
+      text-decoration: none;
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.15s;
     }
+    .nav a:hover, .nav a.active { background: rgba(255,255,255,0.1); }
+    .gm-box {
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 16px;
+      font-size: 13px;
+      color: var(--sidebar-muted);
+    }
+    .gm-box strong { display: block; color: #fff; font-size: 15px; margin-bottom: 2px; }
 
-    /* Main Content */
-    .main-content {
+    /* Main */
+    .main {
       flex: 1;
-      padding: 32px 40px;
-      max-width: 1400px;
+      padding: 32px 36px;
+      max-width: 1360px;
     }
-
-    .top-header {
+    .topbar {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      margin-bottom: 24px;
       flex-wrap: wrap;
       gap: 16px;
+      margin-bottom: 24px;
     }
-
-    .week-label {
-      font-size: 11.5px;
+    .week-badge {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: var(--accent);
       font-weight: 700;
-      color: var(--text-muted);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-
-    .page-title {
-      font-size: 26px;
-      font-weight: 700;
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .theme-btn {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      color: var(--text-main);
-      padding: 8px 14px;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      padding: 5px 10px;
       border-radius: 6px;
-      font-size: 13px;
-      font-weight: 500;
-      cursor: pointer;
+      margin-bottom: 8px;
     }
-
+    h1 { font-size: 26px; font-weight: 700; }
+    .controls { display: flex; gap: 10px; align-items: center; }
     .status-pill {
-      background: var(--badge-green-bg);
-      color: var(--badge-green-text);
-      padding: 8px 14px;
-      border-radius: 6px;
+      background: var(--green-bg);
+      color: var(--green);
+      font-weight: 700;
       font-size: 13px;
-      font-weight: 600;
+      padding: 7px 14px;
+      border-radius: 999px;
+    }
+    .btn {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 7px 13px;
+      border-radius: 8px;
+      font-size: 13px;
+      cursor: pointer;
     }
 
     /* KPI Grid */
     .kpi-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 16px;
-      margin-bottom: 28px;
-    }
-
-    .kpi-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-      padding: 18px 20px;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
-    }
-
-    .kpi-title {
-      font-size: 11.5px;
-      font-weight: 600;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      margin-bottom: 8px;
-    }
-
-    .kpi-value {
-      font-size: 26px;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-
-    .kpi-sub {
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--accent-green);
-    }
-
-    .kpi-sub.amber {
-      color: var(--accent-amber);
-    }
-
-    /* Clean Record Sales Breakdown Section */
-    .records-breakdown-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-      padding: 22px 24px;
-      margin-bottom: 28px;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-    }
-
-    .records-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 16px;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .records-header h3 {
-      font-size: 16px;
-      font-weight: 700;
-    }
-
-    .records-header span {
-      font-size: 12px;
-      color: var(--text-muted);
-    }
-
-    .weekly-record-banner {
-      background: var(--bg-card-subtle);
-      border-left: 4px solid var(--accent-teal);
-      border-radius: 6px;
-      padding: 14px 18px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 18px;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .weekly-record-banner .title {
-      font-size: 12px;
-      text-transform: uppercase;
-      font-weight: 700;
-      color: var(--accent-teal);
-      letter-spacing: 0.05em;
-    }
-
-    .weekly-record-banner .amount {
-      font-size: 22px;
-      font-weight: 800;
-    }
-
-    .weekly-record-banner .date {
-      font-size: 13px;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
-
-    .daily-records-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 12px;
-    }
-
-    .day-record-box {
-      background: var(--bg-card-subtle);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 12px 14px;
-    }
-
-    .day-record-box.all-time-peak {
-      border-color: var(--accent-green);
-      background: var(--badge-green-bg);
-    }
-
-    .day-name {
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 4px;
-    }
-
-    .day-record-box.all-time-peak .day-name {
-      color: var(--badge-green-text);
-    }
-
-    .day-amount {
-      font-size: 17px;
-      font-weight: 700;
-      margin-bottom: 2px;
-    }
-
-    .day-date {
-      font-size: 11px;
-      color: var(--text-muted);
-    }
-
-    /* Tables & Sections */
-    .section-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-      padding: 22px 24px;
+      grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+      gap: 14px;
       margin-bottom: 24px;
     }
-
-    .section-card h3 {
-      font-size: 16px;
-      font-weight: 700;
-      margin-bottom: 4px;
+    .kpi-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
     }
-
-    .section-subtitle {
-      font-size: 12.5px;
-      color: var(--text-muted);
-      margin-bottom: 16px;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 13.5px;
-    }
-
-    th {
-      text-align: left;
+    .kpi-label {
       font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: var(--text-muted);
-      padding: 10px 12px;
-      border-bottom: 1px solid var(--border-color);
+      color: var(--muted);
+      margin-bottom: 6px;
     }
+    .kpi-val { font-size: 24px; font-weight: 800; margin-bottom: 6px; }
+    .kpi-sub { font-size: 12px; font-weight: 600; display: inline-block; padding: 2px 8px; border-radius: 6px; }
+    .good { background: var(--green-bg); color: var(--green); }
+    .warn { background: var(--amber-bg); color: var(--amber); }
+    .bad  { background: var(--red-bg); color: var(--red); }
 
-    td {
+    /* Cards & Sections */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 22px;
+      margin-bottom: 22px;
+    }
+    .card h2 { font-size: 17px; margin-bottom: 4px; }
+    .card-sub { font-size: 13px; color: var(--muted); margin-bottom: 16px; }
+
+    /* Records Grid */
+    .records-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+      gap: 10px;
+    }
+    .rec-box {
+      background: var(--surface-alt);
+      border-radius: 8px;
       padding: 12px;
-      border-bottom: 1px solid var(--border-color);
     }
+    .rec-box.wide { grid-column: span 2; background: var(--accent-soft); }
+    .rec-day { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; }
+    .rec-amt { font-size: 17px; font-weight: 800; margin: 3px 0; }
+    .rec-date { font-size: 11px; color: var(--muted); }
 
-    .text-green { color: var(--accent-green); font-weight: 600; }
-    .text-red { color: var(--accent-red); font-weight: 600; }
+    /* Table */
+    .table-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border); }
+    th { font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); background: var(--surface-alt); }
+    td.current-col, th.current-col { background: var(--accent-soft); font-weight: 700; }
 
-    /* Two-column bottom layout */
+    /* Two Column Bottom */
     .two-col {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 20px;
     }
-
-    @media (max-width: 900px) {
+    @media (max-width: 960px) {
       body { flex-direction: column; }
       .sidebar { width: 100%; }
       .two-col { grid-template-columns: 1fr; }
     }
-
-    .list-clean {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      font-size: 13.5px;
-      line-height: 1.5;
-    }
-
-    .focus-item {
-      background: var(--bg-card-subtle);
-      padding: 12px 14px;
-      border-radius: 6px;
-      margin-bottom: 10px;
-    }
-
-    .focus-item h4 {
-      font-size: 13.5px;
-      margin-bottom: 4px;
-    }
-
-    .focus-item p {
-      font-size: 12.5px;
-      color: var(--text-muted);
-    }
+    .narrative p { margin-bottom: 12px; font-size: 14px; }
+    .list-item { padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 13.5px; }
+    .list-item:last-child { border-bottom: none; }
+    .focus-item { background: var(--surface-alt); padding: 12px 14px; border-radius: 8px; margin-bottom: 10px; }
+    .focus-item h3 { font-size: 14px; margin-bottom: 3px; }
+    .focus-item p { font-size: 13px; color: var(--muted); }
+    .outlook-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+    .outlook-stat { background: var(--surface-alt); padding: 10px 12px; border-radius: 8px; }
+    .outlook-stat span { display: block; font-size: 11px; color: var(--muted); text-transform: uppercase; }
+    .outlook-stat strong { font-size: 16px; }
   </style>
 </head>
 <body>
-
-  <!-- Sidebar Navigation -->
   <aside class="sidebar">
     <div>
-      <div class="brand-title">Brother Marcus</div>
-      <div class="brand-subtitle">Victoria · Weekly Operations</div>
-      <ul class="nav-links">
-        <li><a href="#" class="active">📊 Weekly Overview</a></li>
-        <li><a href="#">📈 BM Trading Pack ↗</a></li>
-        <li><a href="#">📋 MOR Scorecard ↗</a></li>
-        <li><a href="#">✨ Ops Excellence Report ↗</a></li>
-        <li><a href="#">💬 Guest Sentiment Search ↗</a></li>
-        <li><a href="#">⚓ The Brothership ↗</a></li>
-        <li><a href="#">🎯 Microsoft Planner ↗</a></li>
-      </ul>
+      <div class="brand">
+        <strong>BROTHER MARCUS</strong>
+        VICTORIA · WEEKLY OPERATIONS
+      </div>
+      <nav class="nav">
+        <a href="#overview" class="active">📊 Weekly Overview</a>
+        <a href="https://brothermarcus-victoria.netlify.app/" target="_blank">📈 BM Trading Pack ↗</a>
+        <a href="https://brothermarcus-victoria.netlify.app/" target="_blank">📋 MOR Scorecard ↗</a>
+        <a href="https://brothermarcus-victoria.netlify.app/" target="_blank">✨ Ops Excellence Report ↗</a>
+        <a href="https://brothermarcus-victoria.netlify.app/" target="_blank">💬 Guest Sentiment Search ↗</a>
+        <a href="https://brothermarcus-victoria.netlify.app/" target="_blank">⚓ The Brothership ↗</a>
+        <a href="https://brothermarcus-victoria.netlify.app/" target="_blank">🎯 Microsoft Planner ↗</a>
+      </nav>
     </div>
-    <div class="user-profile">
-      <strong>Alex Paulus</strong>
-      <span>General Manager · W33 Pack</span>
+    <div class="gm-box">
+      <strong id="gm-name">Alex Paulus</strong>
+      <span id="pack-label">General Manager · W34 Pack</span>
     </div>
   </aside>
 
-  <!-- Main Dashboard -->
-  <main class="main-content">
-    <div class="top-header">
+  <main class="main" id="overview">
+    <div class="topbar">
       <div>
-        <div class="week-label">Week Ending 15 Nov 2026 (W33)</div>
-        <h1 class="page-title">Victoria KPI Summary</h1>
+        <div class="week-badge" id="week-badge">WEEK ENDING 22 NOV 2026 (W34)</div>
+        <h1>Victoria KPI Summary</h1>
       </div>
-      <div class="header-actions">
-        <button class="theme-btn" onclick="document.body.classList.toggle('dark-mode')">🌙 Toggle Theme</button>
-        <div class="status-pill">+9.87% vs Budget</div>
-      </div>
-    </div>
-
-    <!-- Top KPI Cards -->
-    <div class="kpi-grid">
-      <div class="kpi-card">
-        <div class="kpi-title">Weekly Sales</div>
-        <div class="kpi-value">£60,417</div>
-        <div class="kpi-sub">↑ +9.87% vs Budget (£54,992)</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-title">Labour Cost %</div>
-        <div class="kpi-value">37.98%</div>
-        <div class="kpi-sub">Target: ≤ 38.5% (Achieved)</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-title">Spend Per Guest (SPG)</div>
-        <div class="kpi-value">£25.85</div>
-        <div class="kpi-sub">Target: ≥ £25.00 (Achieved)</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-title">Marcus Choice %</div>
-        <div class="kpi-value">21.50%</div>
-        <div class="kpi-sub">Target: ≥ 15% (Outstanding)</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-title">Drinks Attach</div>
-        <div class="kpi-value">1.23</div>
-        <div class="kpi-sub amber">Target: ≥ 1.28 (Focus Area)</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-title">Net Promoter Score (NPS)</div>
-        <div class="kpi-value">82</div>
-        <div class="kpi-sub">Target: ≥ 80 (Achieved)</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-title">Team Pulse</div>
-        <div class="kpi-value">7.4</div>
-        <div class="kpi-sub">Target: ≥ 7.0 (Achieved)</div>
+      <div class="controls">
+        <span class="status-pill" id="budget-pill">+14.73% vs Budget</span>
+        <button class="btn" onclick="document.body.classList.toggle('dark')">🌙 Toggle Theme</button>
       </div>
     </div>
 
-    <!-- Clean All-Time Record Sales Breakdown -->
-    <section class="records-breakdown-card">
-      <div class="records-header">
-        <h3>🏆 All-Time Record Sales Breakdown</h3>
-        <span>Net Sales · 2025—2026</span>
+    <!-- Top 7 KPIs -->
+    <section class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-label">Weekly Sales</div>
+        <div class="kpi-val" id="kpi-sales">£62,290</div>
+        <div class="kpi-sub good" id="kpi-sales-sub">↑ +14.73% vs Budget (£53,744)</div>
       </div>
-
-      <!-- Weekly Record Highlight -->
-      <div class="weekly-record-banner">
-        <div>
-          <div class="title">All-Time Weekly Record</div>
-          <div class="date">Highest 7-day net sales total</div>
-        </div>
-        <div style="text-align: right;">
-          <div class="amount">£69,200.50</div>
-          <div class="date">Set on 06 Jun 2026</div>
-        </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Labour Cost %</div>
+        <div class="kpi-val" id="kpi-labour">40.72%</div>
+        <div class="kpi-sub warn" id="kpi-labour-sub">Target: ≤ 38.5% (£25,363 total)</div>
       </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Spend Per Guest (SPG)</div>
+        <div class="kpi-val" id="kpi-spg">£25.81</div>
+        <div class="kpi-sub good" id="kpi-spg-sub">Target: ≥ £25.00 (Achieved)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Marcus Choice %</div>
+        <div class="kpi-val" id="kpi-mc">22.50%</div>
+        <div class="kpi-sub good" id="kpi-mc-sub">Target: ≥ 15% (MC &amp; Festive)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Drinks Attach</div>
+        <div class="kpi-val" id="kpi-drinks">1.25</div>
+        <div class="kpi-sub warn" id="kpi-drinks-sub">Target: ≥ 1.28 (Focus Area)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Net Promoter Score (NPS)</div>
+        <div class="kpi-val" id="kpi-nps">76</div>
+        <div class="kpi-sub warn" id="kpi-nps-sub">Target: ≥ 80 (26x 5★ Reviews)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Team Pulse</div>
+        <div class="kpi-val" id="kpi-pulse">7.0</div>
+        <div class="kpi-sub good" id="kpi-pulse-sub">Target: ≥ 7.0 (Achieved)</div>
+      </div>
+    </section>
 
-      <!-- Daily Records Grid (Mon - Sun) -->
-      <div class="daily-records-grid">
-        <div class="day-record-box">
-          <div class="day-name">Monday</div>
-          <div class="day-amount">£8,305.41</div>
-          <div class="day-date">21 Sep 2026</div>
+    <!-- All-Time Record Sales Breakdown -->
+    <section class="card">
+      <h2>🏆 All-Time Record Sales Breakdown</h2>
+      <div class="card-sub">Net Sales · 2025—2026</div>
+      <div class="records-grid">
+        <div class="rec-box wide">
+          <div class="rec-day">All-Time Weekly Record · Highest 7-day net sales total</div>
+          <div class="rec-amt">£69,200.50</div>
+          <div class="rec-date">Set on 06 Jun 2026</div>
         </div>
-        <div class="day-record-box">
-          <div class="day-name">Tuesday</div>
-          <div class="day-amount">£9,447.23</div>
-          <div class="day-date">28 Jul 2026</div>
-        </div>
-        <div class="day-record-box">
-          <div class="day-name">Wednesday</div>
-          <div class="day-amount">£13,749.84</div>
-          <div class="day-date">08 Jul 2026</div>
-        </div>
-        <div class="day-record-box">
-          <div class="day-name">Thursday</div>
-          <div class="day-amount">£12,399.86</div>
-          <div class="day-date">13 Aug 2026</div>
-        </div>
-        <div class="day-record-box">
-          <div class="day-name">Friday</div>
-          <div class="day-amount">£10,725.87</div>
-          <div class="day-date">19 Jun 2026</div>
-        </div>
-        <div class="day-record-box all-time-peak">
-          <div class="day-name">Saturday ★</div>
-          <div class="day-amount">£14,757.87</div>
-          <div class="day-date">14 Nov 2026</div>
-        </div>
-        <div class="day-record-box">
-          <div class="day-name">Sunday</div>
-          <div class="day-amount">£9,210.81</div>
-          <div class="day-date">26 Apr 2026</div>
-        </div>
+        <div class="rec-box"><div class="rec-day">Monday</div><div class="rec-amt">£8,305.41</div><div class="rec-date">21 Sep 2026</div></div>
+        <div class="rec-box"><div class="rec-day">Tuesday</div><div class="rec-amt">£9,447.23</div><div class="rec-date">28 Jul 2026</div></div>
+        <div class="rec-box"><div class="rec-day">Wednesday</div><div class="rec-amt">£13,749.84</div><div class="rec-date">08 Jul 2026</div></div>
+        <div class="rec-box"><div class="rec-day">Thursday</div><div class="rec-amt">£12,399.86</div><div class="rec-date">13 Aug 2026</div></div>
+        <div class="rec-box"><div class="rec-day">Friday</div><div class="rec-amt">£10,725.87</div><div class="rec-date">19 Jun 2026</div></div>
+        <div class="rec-box"><div class="rec-day">Saturday ★</div><div class="rec-amt">£14,757.87</div><div class="rec-date">14 Nov 2026</div></div>
+        <div class="rec-box"><div class="rec-day">Sunday</div><div class="rec-amt">£9,210.81</div><div class="rec-date">26 Apr 2026</div></div>
       </div>
     </section>
 
     <!-- Past Weeks Performance History -->
-    <section class="section-card">
-      <h3>Past Weeks Performance History</h3>
-      <div class="section-subtitle">Comparative trend analysis across recent trading periods</div>
-      <table>
-        <thead>
-          <tr>
-            <th>Metric</th>
-            <th>Target</th>
-            <th>W33 (Current)</th>
-            <th>W32 (w/e 8 Nov)</th>
-            <th>W31 (w/e 1 Nov)</th>
-            <th>W30 (w/e 25 Oct)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Sales vs Budget</td>
-            <td>Site Budget</td>
-            <td class="text-green">+9.87% (£60,417)</td>
-            <td class="text-green">+0.4% (£52,771)</td>
-            <td class="text-red">−3.8% (£51,351)</td>
-            <td class="text-red">−4.4% (£51,500)</td>
-          </tr>
-          <tr>
-            <td>Labour Cost %</td>
-            <td>≤ 38.5%</td>
-            <td class="text-green">37.98%</td>
-            <td class="text-green">37.2%</td>
-            <td class="text-red">41.4%</td>
-            <td class="text-red">42.6%</td>
-          </tr>
-          <tr>
-            <td>Spend Per Guest (SPG)</td>
-            <td>≥ £25.00</td>
-            <td class="text-green">£25.85</td>
-            <td class="text-green">£25.48</td>
-            <td class="text-red">£23.49</td>
-            <td class="text-green">£25.10</td>
-          </tr>
-          <tr>
-            <td>Marcus Choice %</td>
-            <td>≥ 15.0%</td>
-            <td class="text-green">21.50%</td>
-            <td class="text-green">21.7%</td>
-            <td class="text-red">13.5%</td>
-            <td class="text-red">12.8%</td>
-          </tr>
-          <tr>
-            <td>Drinks Attach</td>
-            <td>≥ 1.28</td>
-            <td>1.23</td>
-            <td>1.21</td>
-            <td>1.16</td>
-            <td>1.16</td>
-          </tr>
-          <tr>
-            <td>Net Promoter Score (NPS)</td>
-            <td>≥ 80</td>
-            <td class="text-green">82</td>
-            <td class="text-green">82</td>
-            <td class="text-green">85</td>
-            <td class="text-green">83</td>
-          </tr>
-          <tr>
-            <td>Team Pulse</td>
-            <td>≥ 7.0</td>
-            <td class="text-green">7.4</td>
-            <td class="text-green">7.3</td>
-            <td class="text-green">7.9</td>
-            <td class="text-green">7.8</td>
-          </tr>
-        </tbody>
-      </table>
+    <section class="card">
+      <h2>Past Weeks Performance History</h2>
+      <div class="card-sub">Comparative trend analysis across recent trading periods</div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>Target</th>
+              <th class="current-col" id="th-curr">W34 (Current)</th>
+              <th>W33 (w/e 15 Nov)</th>
+              <th>W32 (w/e 8 Nov)</th>
+              <th>W31 (w/e 1 Nov)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Sales vs Budget</strong></td>
+              <td>Site Budget</td>
+              <td class="current-col" id="td-sales">+14.73% (£62,290)</td>
+              <td>+9.87% (£60,417)</td>
+              <td>+0.4% (£52,771)</td>
+              <td>−3.8% (£51,351)</td>
+            </tr>
+            <tr>
+              <td><strong>Labour Cost %</strong></td>
+              <td>≤ 38.5%</td>
+              <td class="current-col" id="td-labour">40.72%</td>
+              <td>37.98%</td>
+              <td>37.2%</td>
+              <td>41.4%</td>
+            </tr>
+            <tr>
+              <td><strong>Spend Per Guest (SPG)</strong></td>
+              <td>≥ £25.00</td>
+              <td class="current-col" id="td-spg">£25.81</td>
+              <td>£25.85</td>
+              <td>£25.48</td>
+              <td>£23.49</td>
+            </tr>
+            <tr>
+              <td><strong>Marcus Choice %</strong></td>
+              <td>≥ 15.0%</td>
+              <td class="current-col" id="td-mc">22.50%</td>
+              <td>21.50%</td>
+              <td>21.7%</td>
+              <td>13.5%</td>
+            </tr>
+            <tr>
+              <td><strong>Drinks Attach</strong></td>
+              <td>≥ 1.28</td>
+              <td class="current-col" id="td-drinks">1.25</td>
+              <td>1.23</td>
+              <td>1.21</td>
+              <td>1.16</td>
+            </tr>
+            <tr>
+              <td><strong>Net Promoter Score (NPS)</strong></td>
+              <td>≥ 80</td>
+              <td class="current-col" id="td-nps">76</td>
+              <td>82</td>
+              <td>82</td>
+              <td>85</td>
+            </tr>
+            <tr>
+              <td><strong>Team Pulse</strong></td>
+              <td>≥ 7.0</td>
+              <td class="current-col" id="td-pulse">7.0</td>
+              <td>7.4</td>
+              <td>7.3</td>
+              <td>7.9</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
-    <!-- Bottom Two-Column Layout -->
+    <!-- Bottom 2-Column Section -->
     <div class="two-col">
       <div>
-        <section class="section-card">
-          <h3>GM Weekly Briefing & Narrative</h3>
-          <p style="font-size: 13.5px; line-height: 1.6; margin-top: 10px; margin-bottom: 12px;">
-            Really strong week finishing <strong>+9.87% up on budget (£60,417 vs £54,992)</strong>. A slow Mon–Thu (-22h saved on labour) was heavily outweighed by a record-breaking weekend: Friday's biggest breakfast ever (£9,449) and a massive Saturday (£14,547). Sunday saw strong brunch covers.
-          </p>
-          <p style="font-size: 13.5px; line-height: 1.6;">
-            <strong>Operational Focus:</strong> Weekend brunch table turnover — 12pm is a real bottleneck with early tables (especially drinks-only) lingering. Food Alert coaching showed pest/checklist improvements, but kitchen labelling & FIFO need tighter focus.
-          </p>
+        <section class="card narrative">
+          <h2>GM Weekly Briefing &amp; Narrative</h2>
+          <div class="card-sub">Trading commentary, CoGs &amp; operational notes</div>
+          <p id="narr-overview">Strong festive week finishing <strong>+14.73% up on budget (£62,290 vs £53,744)</strong> and <strong>+8.7% vs forecast (£61,977 vs £57,000)</strong>, driven by £25.81 SPG, 1.25 drinks attach, and a 22.5% Marcus Choice &amp; Festive Set Menu mix. Hyde Park Winter Wonderland opening (Thu 19 Nov) boosted Thu–Sun footfall, while Piccadilly/District tube strikes (Fri–Sat) brought heavy Victoria walk-ins (Fri +18.6% and Sat +16.4% vs forecast) that outweighed cancellations. Kitchen speeds held under 10 mins across the week, though Sat PM (£13,965) needed one more strong chef.</p>
+          <p id="narr-focus"><strong>Operational Focus:</strong> Aggressive Fork &amp; phone peak booking pacing created weekend brunch and Fri/Sat dinner bottlenecks. Service hours ran +66.8h over approved (BOH +37.2h, FOH +17.4h, Bar +12.2h) alongside 150.2h non-service/training hours (HC Luis 50.2h, SC Serdal 48h, Benvenuto notice 16h, Stint Willow 6h, Jago bar dev 6h, Jamal 3h). Food GP finished at 78.10% (vs 78.15% theo) and Drink GP at 77.27% (vs 77.38% theo) — tighten portion adherence (squid sauce, coriander, dill, Xigalo cheese, labneh) and log all waste promptly.</p>
         </section>
 
-        <section class="section-card">
-          <h3>Guest Sentiment</h3>
-          <ul class="list-clean" style="margin-top: 12px;">
-            <li><strong>★ Amelia (x5 mentions):</strong> Praised for warm, attentive service & set-menu guidance.</li>
-            <li><strong>★ Jamal & Shay:</strong> Commended for impeccable menu & wine knowledge.</li>
-            <li><strong>⚠ Guest Incident (9 Nov):</strong> 2-star review regarding unrequested £2 water charge. <em>Actioned: FOH briefing updated.</em></li>
-          </ul>
+        <section class="card">
+          <h2>Guest Sentiment</h2>
+          <div class="card-sub">Reviews, BTFM &amp; team recognition</div>
+          <div id="sentiment-list">
+            <div class="list-item"><strong>★ 26x 5★ Reviews:</strong> Praised exceptional customer service, great food &amp; atmosphere.</div>
+            <div class="list-item"><strong>★ Freddie, Marshall &amp; Vi:</strong> Named shout-outs — including a returning Canadian pre-theatre couple served by Vi &amp; Marshall across three consecutive nights (£483.80 BTFM).</div>
+            <div class="list-item"><strong>⚠ Weekend Feedback:</strong> Busy/loud weekend atmosphere; 2x 3★ (no comment, Sat &amp; Sun) and 1x 2★ (<em>"food is not great"</em>, Sat). <em>Actioned: Recognise named staff in briefings &amp; smooth peak booking pacing.</em></div>
+          </div>
         </section>
       </div>
 
       <div>
-        <section class="section-card">
-          <h3>This Week's Focus Board</h3>
-          <div class="section-subtitle">Core operational priorities extracted from the Monday trading report</div>
-          <div class="focus-item">
-            <h4>1. Brunch Turnover</h4>
-            <p>Tackle the 12pm bottleneck where early and drinks-only tables linger during peak weekend brunch rushes.</p>
-          </div>
-          <div class="focus-item">
-            <h4>2. Labelling & FIFO</h4>
-            <p>Tighten up kitchen labelling and strict FIFO compliance following Food Alert coaching feedback.</p>
-          </div>
-          <div class="focus-item">
-            <h4>3. FOH Bill Checks</h4>
-            <p>Brief FOH to distinguish tap vs. filtered water on arrival and rigorously check bills before dropping.</p>
+        <section class="card">
+          <h2>This Week's Focus Board</h2>
+          <div class="card-sub">Core operational priorities extracted from the Monday trading report</div>
+          <div id="focus-list">
+            <div class="focus-item">
+              <h3>1. Weekend Booking Pacing &amp; Cover</h3>
+              <p>Smooth Fork &amp; phone peak pacing across weekend brunch and Fri/Sat dinner to ease bottlenecks and noise.</p>
+            </div>
+            <div class="focus-item">
+              <h3>2. Recipe Portioning &amp; Waste Logs</h3>
+              <p>Enforce exact specs on squid sauce, coriander, dill, Xigalo cheese, and labneh, and record all kitchen/bar waste promptly.</p>
+            </div>
+            <div class="focus-item">
+              <h3>3. Labour &amp; Onboarding Normalisation</h3>
+              <p>Bring service hours back within schedule (+66.8h overrun in W34) as HC Luis and SC Serdal ramp up and new FOH starter Kai joins w/c 23 Nov.</p>
+            </div>
           </div>
         </section>
 
-        <section class="section-card">
-          <h3>Next Week Outlook</h3>
-          <div class="section-subtitle">Forecast & key training focus</div>
-          <p style="font-size: 13.5px; margin-bottom: 8px;"><strong>Forecast Sales:</strong> £54,750</p>
-          <p style="font-size: 13.5px; margin-bottom: 12px;"><strong>Induction & Training:</strong> New Head Chef Luis (48 hrs) & Sous Chef Sam (48 hrs).</p>
-          <div class="focus-item" style="margin-bottom: 0;">
-            <h4>Shift Log / Handover Note</h4>
-            <p>Xmas decorations are now fully up across site. Ensure pre-shift briefings highlight Amelia & Jamal's shout-outs.</p>
+        <section class="card">
+          <h2>Next Week Outlook</h2>
+          <div class="card-sub">Forecast &amp; key training focus (w/c 23 Nov 2026)</div>
+          <div class="outlook-grid">
+            <div class="outlook-stat">
+              <span>Forecast Sales</span>
+              <strong id="out-sales">£59,750</strong>
+            </div>
+            <div class="outlook-stat">
+              <span>Forecast Labour</span>
+              <strong id="out-labour">£22,634 (38.0%)</strong>
+            </div>
           </div>
+          <p style="font-size: 13.5px;" id="out-notes"><strong>Induction &amp; Trading:</strong> New FOH starter Kai joins w/c 23 Nov alongside ongoing integration of HC Luis and SC Serdal. Expect quieter Mon–Tue followed by a busy Winter Wonderland &amp; festive lights weekend (monitor tube strike impact).</p>
+        </section>
+
+        <section class="card">
+          <h2>Shift Log / Handover Note</h2>
+          <p style="font-size: 13.5px;" id="handover-note">Jamal failed probation and has left the business. Eloise (head injury) and Ruth (sick Sun) were off over the weekend with management covering floor gaps. Highlight Freddie, Marshall &amp; Vi's guest shout-outs in pre-shift briefings.</p>
         </section>
       </div>
     </div>
   </main>
 
+  <script>
+    // Dynamically loads ./Weeks/w34.json (or ?week=XX) so future updates only need a new JSON file in Weeks/
+    (async function loadWeekData() {
+      const params = new URLSearchParams(window.location.search);
+      const weekNum = params.get("week") || "34";
+      try {
+        const res = await fetch(`./Weeks/w${weekNum}.json`);
+        if (!res.ok) return;
+        const d = await res.json();
+
+        document.title = `Brother Marcus Victoria — Weekly Operations (w/e ${d.shortDate} 2026)`;
+        document.getElementById("gm-name").textContent = d.generalManager;
+        document.getElementById("pack-label").textContent = `General Manager · W${d.weekNumber} Pack`;
+        document.getElementById("week-badge").textContent = `WEEK ENDING ${d.weekEndingLabel} (W${d.weekNumber})`;
+
+        const sign = d.kpis.sales.vsBudgetPct >= 0 ? "+" : "";
+        document.getElementById("budget-pill").textContent = `${sign}${d.kpis.sales.vsBudgetPct.toFixed(2)}% vs Budget`;
+        document.getElementById("kpi-sales").textContent = `£${d.kpis.sales.actual.toLocaleString()}`;
+        document.getElementById("kpi-sales-sub").textContent = `↑ ${sign}${d.kpis.sales.vsBudgetPct.toFixed(2)}% vs Budget (£${d.kpis.sales.budget.toLocaleString()})`;
+
+        document.getElementById("kpi-labour").textContent = `${d.kpis.labour.pctOfSales.toFixed(2)}%`;
+        document.getElementById("kpi-labour-sub").textContent = `Target: ≤ ${d.kpis.labour.targetPct}% (£${d.kpis.labour.totalCost.toLocaleString()} total)`;
+        document.getElementById("kpi-labour-sub").className = `kpi-sub ${d.kpis.labour.pctOfSales <= d.kpis.labour.targetPct ? "good" : "warn"}`;
+
+        document.getElementById("kpi-spg").textContent = `£${d.kpis.spg.actual.toFixed(2)}`;
+        document.getElementById("kpi-mc").textContent = `${d.kpis.marcusChoicePct.actual.toFixed(2)}%`;
+        document.getElementById("kpi-drinks").textContent = d.kpis.drinksAttach.actual.toFixed(2);
+        document.getElementById("kpi-nps").textContent = d.kpis.nps.actual;
+        document.getElementById("kpi-pulse").textContent = d.kpis.teamPulse.actual.toFixed(1);
+
+        document.getElementById("th-curr").textContent = `W${d.weekNumber} (Current)`;
+        document.getElementById("td-sales").textContent = `${sign}${d.kpis.sales.vsBudgetPct.toFixed(2)}% (£${d.kpis.sales.actual.toLocaleString()})`;
+        document.getElementById("td-labour").textContent = `${d.kpis.labour.pctOfSales.toFixed(2)}%`;
+        document.getElementById("td-spg").textContent = `£${d.kpis.spg.actual.toFixed(2)}`;
+        document.getElementById("td-mc").textContent = `${d.kpis.marcusChoicePct.actual.toFixed(2)}%`;
+        document.getElementById("td-drinks").textContent = d.kpis.drinksAttach.actual.toFixed(2);
+        document.getElementById("td-nps").textContent = d.kpis.nps.actual;
+        document.getElementById("td-pulse").textContent = d.kpis.teamPulse.actual.toFixed(1);
+
+        if (d.nextWeekOutlook) {
+          document.getElementById("out-sales").textContent = `£${d.nextWeekOutlook.forecastSales.toLocaleString()}`;
+          document.getElementById("out-labour").textContent = `£${d.nextWeekOutlook.forecastLabourCost.toLocaleString()} (${d.nextWeekOutlook.forecastLabourPct.toFixed(1)}%)`;
+        }
+      } catch (e) {
+        console.warn("Using inline W34 fallback data.", e);
+      }
+    })();
+  </script>
 </body>
 </html>
